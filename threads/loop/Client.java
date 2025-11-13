@@ -72,7 +72,7 @@ public class Client {
        Boolean isFinished =   executorService.awaitTermination(1, TimeUnit.SECONDS);
        if(!isFinished)
       System.err.println("Timeout exceeded");
-      executorService.shutdownNow();
+     // executorService.shutdownNow();
       } 
       catch(Exception e){
         e.printStackTrace();

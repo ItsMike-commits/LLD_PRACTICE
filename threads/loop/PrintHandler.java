@@ -18,10 +18,10 @@ public class PrintHandler implements Runnable {
         Thread.sleep(1000);
        System.out.println("i : " + i + " Thread: " + Thread.currentThread().getName());
            
-       } catch (Exception e) {
+       }
+        catch (Exception e) {
         e.printStackTrace();
        }
-       
        
     }
  
