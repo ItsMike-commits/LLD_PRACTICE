@@ -1,12 +1,12 @@
-package parkinglot.Controller;
+package parkinglot.controller;
 
-import parkinglot.Model.Ticket;
-import parkinglot.Model.VehicleType;
-import parkinglot.Service.TicketService;
 import parkinglot.dtos.TicketRequestdto;
+import parkinglot.dtos.TicketResponseDto;
+import parkinglot.model.Ticket;
+import parkinglot.model.VehicleType;
 
+import parkinglot.service.TicketService;
 public class TicketController {
-    
     private TicketService ticketService;
     public TicketController(TicketService ticketService)
     {
@@ -15,15 +15,15 @@ public class TicketController {
     public Ticket generateTicket(TicketRequestdto ticketRequestdto)
     {
          // Controller does some validation check on input object.
-         String vehicleNumber = ticketRequestdto.getVehicleNumber();
-         String vehicleOwner = ticketRequestdto.getVehichleOwner();
-         long gateId = ticketRequestdto.getGateId();
-         VehicleType vehicleType = ticketRequestdto.getVehicleType();
+
          
          // After successful validation, Controller sends object to TicketService to process all business logic.
-        Ticket newTicket = ticketService.generateTicketService(ticketRequestdto);
-        
-        return newTicket;
+         //After processing, it gets back the responseModel and it sends it back to the client.
+
+         Ticket response = ticketService.generateTicketService(ticketRequestdto);
+         System.out.println("Inside Controller class");
+         System.out.println("Vehicle no "+ response.getVehicle().getVehicleNumber() + " Gate no "+ response.getGate().getId());
+         return response;
     }
 
 }

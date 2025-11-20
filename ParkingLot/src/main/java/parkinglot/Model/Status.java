@@ -1,4 +1,4 @@
-package parkinglot.Model;
+package parkinglot.model;
 
 public enum Status {
     OPEN,

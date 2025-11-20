@@ -4,10 +4,15 @@
 
 package parkinglot;
 
-import parkinglot.Controller.TicketController;
-import parkinglot.Model.VehicleType;
-import parkinglot.Service.TicketService;
+import parkinglot.controller.TicketController;
 import parkinglot.dtos.TicketRequestdto;
+import parkinglot.dtos.TicketResponseDto;
+import parkinglot.model.Ticket;
+import parkinglot.model.VehicleType;
+import parkinglot.repository.GateRepository;
+import parkinglot.repository.TicketRepository;
+import parkinglot.repository.VehicleRepository;
+import parkinglot.service.TicketService;
 
 /**
  *
@@ -22,9 +27,14 @@ public class ParkingLot {
         ticketRequestdto.setVehichleOwner("Mukesh");
         ticketRequestdto.setVehicleNumber("1234-ABCD");
         ticketRequestdto.setVehicleType(VehicleType.BIKE);
+
+        GateRepository gateRepository = new GateRepository();
+        TicketRepository ticketRepository = new TicketRepository();
+        VehicleRepository vehicleRepository = new VehicleRepository();
         
-        TicketService ticketService = new TicketService();
+        TicketService ticketService = new TicketService(gateRepository,ticketRepository,vehicleRepository);
         TicketController ticketController = new TicketController(ticketService);
-        ticketController.generateTicket(ticketRequestdto);
+        Ticket responseDto = ticketController.generateTicket(ticketRequestdto);
+        System.out.println("Output Gate id "+ responseDto.getGate().getId() + " vehicle no "+ responseDto.getVehicle().getVehicleNumber());
     }
 }

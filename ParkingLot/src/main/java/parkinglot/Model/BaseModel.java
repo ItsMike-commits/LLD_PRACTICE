@@ -1,19 +1,19 @@
-package parkinglot.Model;
+package parkinglot.model;
 
 import java.sql.Date;
 
 public class BaseModel {
-    private long id;
+    private Long id;
     private Date createdAt;
     private Date lastUpdatedAt;
     
 
     // Getter & Setter Methods
-    public long getId()
+    public Long getId()
     {
         return id;
     }
-    public void setId(long id)
+    public void setId(Long id)
     {
         this.id = id;
     }

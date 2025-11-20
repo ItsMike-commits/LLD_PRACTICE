@@ -1,4 +1,4 @@
-package parkinglot.Model;
+package parkinglot.model;
 
 public class Vehicle extends BaseModel {
     private String vehicleNumber;

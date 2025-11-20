@@ -1,4 +1,4 @@
-package parkinglot.Model;
+package parkinglot.model;
 
 import java.sql.Date;
 

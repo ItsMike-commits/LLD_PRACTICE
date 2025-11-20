@@ -1,4 +1,4 @@
-package parkinglot.Model;
+package parkinglot.model;
 
 public class Operator extends BaseModel{
     private String name;
